@@ -11,7 +11,7 @@ Resources:
               KMSMasterKeyID: "aws/s3"
       PublicAccessBlockConfiguration:
         BlockPublicAcls: true
-        BlockPublicPolicy: true
+        BlockPublicPolicy: false
         IgnorePublicAcls: true
         RestrictPublicBuckets: true
 Parameters: {}
