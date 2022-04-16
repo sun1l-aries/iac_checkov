@@ -2,14 +2,6 @@
 
 on: [push]
 jobs:
-  wget-job:
-    runs-on: ubuntu-latest
-    name: wget the config file
-    steps:
-      - name: wget
-        uses: wei/wget@v1
-        with:
-          args: -O ./checkov_config.yaml https://raw.githubusercontent.com/sun1l-aries/iac_checkov/master/config_output.yaml
   checkov-job:
     runs-on: ubuntu-latest
     name: checkov-action
@@ -17,7 +9,7 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@master
       - name:  wget the config file
-        run:   -O ./checkov_config.yaml https://raw.githubusercontent.com/sun1l-aries/iac_checkov/master/config_output.yaml
+        run:   wget -O ./checkov_config.yaml https://raw.githubusercontent.com/sun1l-aries/iac_checkov/master/config_output.yaml
       - name: Run Checkov action
         id: checkov
         uses: bridgecrewio/checkov-action@master
