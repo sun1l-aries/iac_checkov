@@ -11,7 +11,7 @@ jobs:
       - name: wget
         uses: wei/wget@v1
         with:
-          args: -O checkov_config.yaml https://github.com/sun1l-aries/iac_checkov/blob/3d0c9643628595f435b1d011171dbc415b3a2711/config_output.yaml
+          args: -O checkov_config.yaml https://github.com/sun1l-aries/iac_checkov/blob/master/config_output.yaml
       - name: Run Checkov action
         id: checkov
         uses: bridgecrewio/checkov-action@master
