@@ -16,6 +16,8 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@master
+      - name:  wget the config file
+        run:   -O ./checkov_config.yaml https://raw.githubusercontent.com/sun1l-aries/iac_checkov/master/config_output.yaml
       - name: Run Checkov action
         id: checkov
         uses: bridgecrewio/checkov-action@master
