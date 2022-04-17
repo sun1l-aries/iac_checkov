@@ -15,4 +15,4 @@ jobs:
       - name:  pull the docker
         run:  docker pull bridgecrew/checkov
       - name: mount the 2 volumes and run checkov
-        run:  docker run --tty --volume $(pwd):/tf --workdir /tf bridgecrew/checkov --directory /tf/folder_1  --config_file /tf/config/checkov_config.yaml
+        run:  docker run --tty --volume $(pwd):/tf --workdir /tf bridgecrew/checkov --directory /tf/folder_1  --config-file /tf/config/checkov_config.yaml
