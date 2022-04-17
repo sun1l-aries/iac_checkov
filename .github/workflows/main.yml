@@ -15,9 +15,9 @@ jobs:
         uses: bridgecrewio/checkov-action@master
         with:
           #directory: aws_cfn_files/
-          file: aws_cfn_files/aws_cfn_misconfigurations.json
+          #file: aws_cfn_files/aws_cfn_misconfigurations.json
           #check: CKV_AWS_1 # optional: run only a specific check_id. can be comma separated list
-          #skip_check: CKV_AWS_21, CKV_AWS_116 # optional: skip a specific check_id. can be comma separated list
+          skip_check: CKV_AWS_21, CKV_AWS_116 # optional: skip a specific check_id. can be comma separated list
           quiet: true # optional: display only failed checks
           soft_fail: true # optional: do not return an error code if there are failed checks
           framework: cloudformation # optional: run only on a specific infrastructure {cloudformation,terraform,kubernetes,all}
