@@ -15,13 +15,13 @@ jobs:
         uses: bridgecrewio/checkov-action@master
         with:
           #directory: aws_cfn_files/
-          #file: aws_cfn_files/aws_cfn_misconfigurations.json
+          file: /aws_cfn_files/aws_cfn_misconfigurations.json
           #check: CKV_AWS_1 # optional: run only a specific check_id. can be comma separated list
-          skip_check: CKV_AWS_21, CKV_AWS_116 # optional: skip a specific check_id. can be comma separated list
+          skip_check: "CKV_AWS_21, CKV_AWS_116"  # optional: skip a specific check_id. can be comma separated list
           quiet: true # optional: display only failed checks
           soft_fail: true # optional: do not return an error code if there are failed checks
           framework: cloudformation # optional: run only on a specific infrastructure {cloudformation,terraform,kubernetes,all}
-          output_format: sarif # optional: the output format, one of: cli, json, junitxml, github_failed_only, or sarif. Default: sarif
+          output_format:  sarif # optional: the output format, one of: cli, json, junitxml, github_failed_only, or sarif. Default: sarif
           #download_external_modules: true # optional: download external terraform modules from public git repositories and terraform registry
           #log_level: DEBUG # optional: set log level. Default WARNING
           #config_file: ./config_output.yaml
