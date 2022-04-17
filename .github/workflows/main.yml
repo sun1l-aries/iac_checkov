@@ -8,22 +8,10 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@master
-      - name:  wget the config file
-        run:   wget -O ./checkov_config.yaml https://raw.githubusercontent.com/sun1l-aries/iac_checkov/master/config_output.yaml
-      - name: Run Checkov action
-        id: checkov
-        uses: bridgecrewio/checkov-action@master
-        with:
-          #directory: aws_cfn_files/
-          file: /aws_cfn_files/aws_cfn_misconfigurations.json
-          #check: CKV_AWS_1 # optional: run only a specific check_id. can be comma separated list
-          skip_check: "CKV_AWS_21, CKV_AWS_116"  # optional: skip a specific check_id. can be comma separated list
-          quiet: true # optional: display only failed checks
-          soft_fail: true # optional: do not return an error code if there are failed checks
-          framework: cloudformation # optional: run only on a specific infrastructure {cloudformation,terraform,kubernetes,all}
-          output_format:  sarif # optional: the output format, one of: cli, json, junitxml, github_failed_only, or sarif. Default: sarif
-          #download_external_modules: true # optional: download external terraform modules from public git repositories and terraform registry
-          #log_level: DEBUG # optional: set log level. Default WARNING
-          #config_file: ./config_output.yaml
-          #baseline: cloudformation/.checkov.baseline # optional: Path to a generated baseline file. Will only report results not in the baseline.
-          #container_user: 1000 # optional: Define what UID and / or what GID to run the container under to prevent permission issues
+      - name: wget the config file
+        run:  mkdir config && wget -O config/checkov_config.yaml https://raw.githubusercontent.com/sun1l-aries/iac_checkov/master/config_output.yaml
+      - name:  pull the docker
+        run:  docker pull bridgecrew/checkov
+      - name: mount the 2 volumes and run checkov
+        run:  docker run --tty --volume /config:/tf/config --volume /folder_1:/tf/folder_1 --workdir /tf bridgecrew/checkov --directory /tf/folder_1 --config_file /tf/config/checkov_config.yaml
+      
