@@ -10,7 +10,7 @@ Resources:
               SSEAlgorithm: "aws:kms"
               KMSMasterKeyID: "aws/s3"
       PublicAccessBlockConfiguration:
-        BlockPublicAcls: true
+        BlockPublicAcls: false
         BlockPublicPolicy: true
         IgnorePublicAcls: true
         RestrictPublicBuckets: true
