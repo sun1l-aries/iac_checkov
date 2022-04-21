@@ -10,7 +10,7 @@ branch: master
 #external-checks-dir:
 ##  - sample-dir
 #external-modules-download-path: .external_modules
-framework: cloudformation
+framework: cloudformation,terraform
 #no-guide: true
 output: sarif
 quiet: true
