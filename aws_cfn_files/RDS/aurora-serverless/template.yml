@@ -37,7 +37,7 @@ Resources:
       MasterUsername: !Ref MasterUsername
       MasterUserPassword: !Ref MasterUserPassword
       DBClusterIdentifier: !Ref AWS::StackName
-      BackupRetentionPeriod: 35
+      BackupRetentionPeriod: 0
       DeletionProtection: true
       VpcSecurityGroupIds:
         - !Ref VpcSecurityGroupId

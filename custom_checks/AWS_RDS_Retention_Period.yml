@@ -1,0 +1,20 @@
+---
+metadata:
+ name: "Ensure all AWS databases have Backup Policy"
+ id: "CKV2_AWS_1001"
+ category: "BACKUP_AND_RECOVERY"
+definition:
+ or:
+   - cond_type: "attribute"
+     resource_types:
+     - "aws_rds_cluster"
+     - "aws_db_instance"
+     attribute: "backup_retention_period"
+     operator: "not_exists"
+   - cond_type: "attribute"
+     resource_types:
+     - "aws_rds_cluster"
+     - "aws_db_instance"
+     attribute: "backup_retention_period"
+     operator: "not_equals"
+     value: "0"

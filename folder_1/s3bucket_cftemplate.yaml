@@ -2,6 +2,7 @@ AWSTemplateFormatVersion: "2010-09-09"
 Description: "Temporary Working Stack"
 Resources:
   S3Bucket:
+	# checkov:skip=CKV_AWS_18: ADD REASON
     Type: "AWS::S3::Bucket"
     Properties:
       BucketEncryption:
@@ -10,10 +11,16 @@ Resources:
               SSEAlgorithm: "aws:kms"
               KMSMasterKeyID: "aws/s3"
       PublicAccessBlockConfiguration:
-        BlockPublicAcls: false
+        BlockPublicAcls: true
         BlockPublicPolicy: true
         IgnorePublicAcls: true
         RestrictPublicBuckets: true
+      VersioningConfiguration:
+        Status: Enabled
+
+
+        RestrictPublicBuckets: true
+
 Parameters: {}
 Metadata: {}
 Conditions: {}
