@@ -28,6 +28,7 @@ Parameters:
 
 Resources:
   Cluster:
+	# checkov:skip=CKV_AWS_162: ADD REASON
     Type: AWS::RDS::DBCluster
     Properties:
       Engine: aurora
@@ -37,10 +38,12 @@ Resources:
       MasterUsername: !Ref MasterUsername
       MasterUserPassword: !Ref MasterUserPassword
       DBClusterIdentifier: !Ref AWS::StackName
-      BackupRetentionPeriod: 0
+      #BackupRetentionPeriod: 0
       DeletionProtection: true
       VpcSecurityGroupIds:
         - !Ref VpcSecurityGroupId
+      StorageEncrypted: True
+
 
   BastionSecurityGroup:
     Type: AWS::EC2::SecurityGroup
