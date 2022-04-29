@@ -4,6 +4,8 @@ provider "aws" {
 }
 
 resource "aws_iam_policy" "basically_allow_all" {
+	# checkov:skip=CKV_AWS_63: ADD REASON
+	# checkov:skip=CKV_AWS_62: ADD REASON
   name        = "some_policy"
   path        = "/"
   description = "Some policy"
