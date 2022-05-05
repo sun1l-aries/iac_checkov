@@ -27,5 +27,5 @@ definition:
           resource_types:
           - "aws_route_table"
           attribute: "route.gateway_id"
-          operator: "containe"
+          operator: "contains"
           value: "*igw*"
