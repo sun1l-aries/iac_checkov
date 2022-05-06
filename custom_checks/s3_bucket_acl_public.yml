@@ -4,10 +4,10 @@ metadata:
  id: "CKV2_AWS_1002"
  category: "BACKUP_AND_RECOVERY"
 definition:
- or:
+ and:
    - cond_type: "attribute"
      resource_types:
      - "aws_s3_bucket_public_access_block"
      attribute: "block_public_acl"
      operator: "equals"
-     value: "false"
+     value: "true"
