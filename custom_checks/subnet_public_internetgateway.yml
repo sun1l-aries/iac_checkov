@@ -4,7 +4,7 @@ metadata:
  id: "CKV2_AWS_1077"
  category: "NETWORKING"
 definition:
-    or:
+    and:
         - cond_type: "attribute"
           resource_types:
           - "aws_subnet"
@@ -26,6 +26,6 @@ definition:
         - cond_type: "attribute"
           resource_types:
           - "aws_route_table"
-          attribute: "route.gateway_id"
-          operator: "not_exists"
+          attribute: "route.nat_gateway_id"
+          operator: "exists"
       
