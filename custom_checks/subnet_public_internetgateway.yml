@@ -4,7 +4,7 @@ metadata:
  id: "CKV2_AWS_1077"
  category: "NETWORKING"
 definition:
-    and:
+    or:
     - cond_type: "connection"
       resource_types:
       - "aws_route_table"
@@ -13,21 +13,23 @@ definition:
       operator: "not_exists"
     - cond_type: "attribute"
       resource_types:
-      - "aws_route_table"
-      attribute: "route.cidr_block"
+      - "aws_subnet"
+      attribute: "map_public_ip_on_launch"
       operator: "equals"
-      value: "0.0.0.0/0"
-    #- cond_type: "attribute"
-     # resource_types:
-      #- "aws_route_table"
-      #attribute: "route.gateway_id"
-      #operator: "not_exists"
-        #- or:
-         #   - cond_type: "attribute"
-          #    resource_types:
-           #   - "aws_subnet"
-            #  attribute: "map_public_ip_on_launch"
-             # operator: "equals"
-              #value: "false"
+      value: "false"
+    - and:
+      - cond_type: "attribute"
+        resource_types:
+        - "aws_route_table"
+        attribute: "route.cidr_block"
+        operator: "equals"
+        value: "0.0.0.0/0"
+      - cond_type: "attribute"
+        resource_types:
+        - "aws_route_table"
+        attribute: "route.gateway_id"
+        operator: "not_exists"
+    
+     
 
       
