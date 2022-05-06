@@ -22,12 +22,12 @@ definition:
           - "aws_route_table"
           attribute: "route.gateway_id"
           operator: "not_exists"
-        - or:
-            - cond_type: "attribute"
-              resource_types:
-              - "aws_subnet"
-              attribute: "map_public_ip_on_launch"
-              operator: "equals"
-              value: "false"
+        #- or:
+         #   - cond_type: "attribute"
+          #    resource_types:
+           #   - "aws_subnet"
+            #  attribute: "map_public_ip_on_launch"
+             # operator: "equals"
+              #value: "false"
 
       
