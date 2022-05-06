@@ -17,7 +17,7 @@ framework: all
 output: sarif
 #quiet: true
 #repo-id: bridgecrew/sample-repo
-skip-check: CKV_AWS_19,CKV_AWS_12
+skip-check: CKV2_AWS_19,CKV2_AWS_12
   #- CKV_DOCKER_3
   #- CKV_DOCKER_2
 #skip-fixes: true
