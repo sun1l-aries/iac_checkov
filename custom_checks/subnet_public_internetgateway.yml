@@ -5,18 +5,18 @@ metadata:
  category: "NETWORKING"
 definition:
     and:
-      #  - cond_type: "attribute"
-      #   resource_types:
-      #    - "aws_subnet"
-      #    attribute: "map_public_ip_on_launch"
-      #    operator: "equals"
-      #    value: "false"
-      #  - cond_type: "connection"
-      #    resource_types:
-      #    - "aws_subnet"
-      #    connected_resource_types:
-      #    - "aws_route_table"
-      #    operator: "exists"
+        - cond_type: "attribute"
+         resource_types:
+          - "aws_subnet"
+          attribute: "map_public_ip_on_launch"
+          operator: "equals"
+          value: "false"
+        - cond_type: "connection"
+          resource_types:
+          - "aws_route_table"
+          connected_resource_types:
+          - "aws_internet_gateway"
+          operator: "exists"
         - cond_type: "attribute"
           resource_types:
           - "aws_route_table"
@@ -27,5 +27,5 @@ definition:
           resource_types:
           - "aws_route_table"
           attribute: "route.gateway_id"
-          operator: "exists"
-      #    value: "igw"
+          operator: "not_exists"
+      
