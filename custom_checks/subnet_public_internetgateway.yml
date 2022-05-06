@@ -10,7 +10,7 @@ definition:
       - "aws_route_table"
       connected_resource_types:
       - "aws_internet_gateway"
-      operator: "exists"
+      operator: "not_exists"
     #- cond_type: "attribute"
      # resource_types:
       #- "aws_route_table"
