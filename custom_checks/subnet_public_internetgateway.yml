@@ -4,13 +4,13 @@ metadata:
  id: "CKV2_AWS_1077"
  category: "NETWORKING"
 definition:
-    and:
+    or:
         - cond_type: "attribute"
           resource_types:
           - "aws_subnet"
           attribute: "map_public_ip_on_launch"
           operator: "equals"
-          value: "true"
+          value: "false"
         - cond_type: "connection"
           resource_types:
           - "aws_route_table"
