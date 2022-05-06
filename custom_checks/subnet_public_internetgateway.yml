@@ -5,13 +5,7 @@ metadata:
  category: "NETWORKING"
 definition:
     and:
-        - cond_type: "attribute"
-          resource_types:
-          - "aws_subnet"
-          attribute: "map_public_ip_on_launch"
-          operator: "equals"
-          value: "false"
-        - cond_type: "connection"
+         - cond_type: "connection"
           resource_types:
           - "aws_route_table"
           connected_resource_types:
@@ -26,6 +20,14 @@ definition:
         - cond_type: "attribute"
           resource_types:
           - "aws_route_table"
-          attribute: "route.nat_gateway_id"
-          operator: "exists"
+          attribute: "route.gateway_id"
+          operator: "not_exists"
+        - or:
+            - cond_type: "attribute"
+              resource_types:
+              - "aws_subnet"
+              attribute: "map_public_ip_on_launch"
+              operator: "equals"
+              value: "false"
+
       
