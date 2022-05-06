@@ -23,9 +23,9 @@ definition:
           attribute: "route.cidr_block"
           operator: "equals"
           value: "0.0.0.0/0"
-        - cond_type: "attribute"
-          resource_types:
-          - "aws_route_table"
-          attribute: "route.gateway_id"
-          operator: "starting_with"
-          value: "igw"
+      #  - cond_type: "attribute"
+      #    resource_types:
+      #    - "aws_route_table"
+      #    attribute: "route.gateway_id"
+      #    operator: "starting_with"
+      #    value: "igw"
