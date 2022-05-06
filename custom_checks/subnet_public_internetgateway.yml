@@ -6,7 +6,7 @@ metadata:
 definition:
     and:
         - cond_type: "attribute"
-         resource_types:
+          resource_types:
           - "aws_subnet"
           attribute: "map_public_ip_on_launch"
           operator: "equals"
