@@ -1,7 +1,7 @@
 branch: master
 #check:
 #  - CKV_DOCKER_1
-#compact: true
+compact: true
 #directory: aws_cfn_files/
 #docker-image: sample-image
 #dockerfile-path: Dockerfile
@@ -17,7 +17,7 @@ framework: all
 output: sarif
 #quiet: true
 #repo-id: bridgecrew/sample-repo
-skip-check: CKV_AWS_18,CKV_AWS_21,LOW
+skip-check: CKV_AWS_19,CKV_AWS_12
   #- CKV_DOCKER_3
   #- CKV_DOCKER_2
 #skip-fixes: true
