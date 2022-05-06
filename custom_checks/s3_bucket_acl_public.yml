@@ -10,4 +10,4 @@ definition:
      - "aws_s3_bucket_public_access_block"
      attribute: "block_public_acl"
      operator: "equals"
-     value: "true"
+     value: "false"
