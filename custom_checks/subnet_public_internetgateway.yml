@@ -10,7 +10,7 @@ definition:
           - "aws_subnet"
           attribute: "map_public_ip_on_launch"
           operator: "equals"
-          value: "false"
+          value: "true"
         - cond_type: "connection"
           resource_types:
           - "aws_subnet"
@@ -28,4 +28,4 @@ definition:
           - "aws_route_table"
           attribute: "route.gateway_id"
           operator: "contains"
-          value: "*igw*"
+          value: "*Igw*"
