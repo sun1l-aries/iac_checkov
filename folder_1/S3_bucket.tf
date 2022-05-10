@@ -1,4 +1,6 @@
 resource "aws_s3_bucket" "S3Bucket" {
+	# checkov:skip=CKV_AWS_18: ADD REASON
+	# checkov:skip=CKV_AWS_144: ADD REASON
 
   server_side_encryption_configuration {
     rule {
@@ -9,6 +11,16 @@ resource "aws_s3_bucket" "S3Bucket" {
     }
   }
 }
+
+resource "aws_s3_bucket_versioning" "S3Bucket" {
+  bucket = aws_s3_bucket.S3Bucket.id
+
+  versioning_configuration {
+    status = "Enabled"
+  }
+}
+
+
 
 resource "aws_s3_bucket_public_access_block" "blockPublicAccess" {
   bucket = aws_s3_bucket.S3Bucket.id
