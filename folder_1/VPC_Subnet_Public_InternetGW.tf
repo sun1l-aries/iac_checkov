@@ -3,6 +3,8 @@ data "aws_availability_zones" "available" {
 		}
 
 resource "aws_vpc" "VPC" {
+	# checkov:skip=CKV2_AWS_12: ADD REASON
+	# checkov:skip=CKV2_AWS_11: ADD REASON
   cidr_block = "10.0.0.0/16"
   enable_dns_support = true
   enable_dns_hostnames = true
@@ -38,7 +40,7 @@ resource "aws_subnet" "PublicSubnet2" {
 
 resource "aws_subnet" "PrivateSubnet1" {
   cidr_block = "10.0.10.0/24"
-  map_public_ip_on_launch = true
+  map_public_ip_on_launch = false
   vpc_id = aws_vpc.VPC.id
   availability_zone = data.aws_availability_zones.available.names[0]
 
@@ -133,6 +135,7 @@ resource "aws_internet_gateway" "Igw" {
 }
 
 resource "aws_eip" "EipForNatGw1" {
+	# checkov:skip=CKV2_AWS_19: ADD REASON
 }
 
 resource "aws_nat_gateway" "NatGw1" {
