@@ -62,29 +62,29 @@ resource "aws_subnet" "PrivateSubnet2" {
   }
 }
 
-resource "aws_route_table" "RouteTablePublic" {
-  vpc_id = aws_vpc.VPC.id
-  depends_on = [ aws_internet_gateway.Igw ]
+# # resource "aws_route_table" "RouteTablePublic" {
+# #   vpc_id = aws_vpc.VPC.id
+# #   depends_on = [ aws_internet_gateway.Igw ]
 
-  tags = {
-    Name = "Public Route Table"
-  }
+#   tags = {
+#     Name = "Public Route Table"
+#   }
 
-  route {
-    cidr_block = "0.0.0.0/0"
-    gateway_id = aws_internet_gateway.Igw.id
-  }
-}
+#   route {
+#     cidr_block = "0.0.0.0/0"
+#     gateway_id = aws_internet_gateway.Igw.id
+#   }
+# }
 
-resource "aws_route_table_association" "AssociationForRouteTablePublic0" {
-  subnet_id = aws_subnet.PublicSubnet1.id
-  route_table_id = aws_route_table.RouteTablePublic.id
-}
+# resource "aws_route_table_association" "AssociationForRouteTablePublic0" {
+#   subnet_id = aws_subnet.PublicSubnet1.id
+#   route_table_id = aws_route_table.RouteTablePublic.id
+# }
 
-resource "aws_route_table_association" "AssociationForRouteTablePublic1" {
-  subnet_id = aws_subnet.PublicSubnet2.id
-  route_table_id = aws_route_table.RouteTablePublic.id
-}
+# resource "aws_route_table_association" "AssociationForRouteTablePublic1" {
+#   subnet_id = aws_subnet.PublicSubnet2.id
+#   route_table_id = aws_route_table.RouteTablePublic.id
+# }
 
 
 
@@ -130,9 +130,9 @@ resource "aws_route_table_association" "AssociationForRouteTablePrivate20" {
 
 
 
-resource "aws_internet_gateway" "Igw" {
-  vpc_id = aws_vpc.VPC.id
-}
+# resource "aws_internet_gateway" "Igw" {
+#   vpc_id = aws_vpc.VPC.id
+# }
 
 resource "aws_eip" "EipForNatGw1" {
 	# checkov:skip=CKV2_AWS_19: ADD REASON
