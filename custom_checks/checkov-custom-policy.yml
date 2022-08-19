@@ -8,5 +8,5 @@ definition:
    resource_types:
    - "google_compute_instance"
    attribute: "zone"
-   operator: "not-equals"
+   operator: "not_equals"
    value: "us-central1-c"
