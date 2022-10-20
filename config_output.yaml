@@ -2,14 +2,13 @@ branch: master
 #check:
 #  - CKV_DOCKER_1
 compact: true
-directory:
-  - folder_1
+#directory:
+ # - folder_1
 #docker-image: sample-image
 #dockerfile-path: Dockerfile
 #download-external-modules: true
 #evaluate-variables: true
 #external-checks-dir:
-#external-checks-git: https://github.com/sun1l-aries/iac_checkov.git//custom_checks
 external-checks-git:
   - https://github.com/sun1l-aries/iac_checkov.git//custom_checks
 ##  - sample-dir
@@ -20,7 +19,6 @@ framework: all
 output: sarif
 #quiet: true
 #repo-id: bridgecrew/sample-repo
-#skip-check: CKV2_AWS_19,CKV2_AWS_12
 skip-check:
   - CKV2_AWS_12
   - CKV2_AWS_19
