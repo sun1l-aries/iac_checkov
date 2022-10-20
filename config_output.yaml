@@ -2,7 +2,7 @@ branch: master
 #check:
 #  - CKV_DOCKER_1
 #compact: true not working
-#directory: aws_cfn_files/
+directory: folder_1
 #docker-image: sample-image
 #dockerfile-path: Dockerfile
 #download-external-modules: true
