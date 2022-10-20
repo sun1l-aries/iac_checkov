@@ -1,7 +1,8 @@
 branch: master
 #check:
 #  - CKV_DOCKER_1
-#compact: true not working
+compact:
+  -   true
 directory: folder_1
 #docker-image: sample-image
 #dockerfile-path: Dockerfile
