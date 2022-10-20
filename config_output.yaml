@@ -2,8 +2,9 @@ branch: master
 #check:
 #  - CKV_DOCKER_1
 compact: true
-#directory:
+directory:
  # - folder_1
+  - aws_cfn_files/EC2
 #docker-image: sample-image
 #dockerfile-path: Dockerfile
 #download-external-modules: true
@@ -14,7 +15,8 @@ external-checks-git:
 ##  - sample-dir
 #external-modules-download-path: .external_modules
 #framework: cloudformation,terraform
-framework: all
+framework:
+  - cloudformation
 #no-guide: true
 output: sarif
 #quiet: true
