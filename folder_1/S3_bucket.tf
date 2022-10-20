@@ -1,8 +1,5 @@
 resource "aws_s3_bucket" "S3Bucket" {
-	# checkov:skip=CKV_AWS_18: ADD REASON
-	# checkov:skip=CKV_AWS_144: ADD REASON
-
-  server_side_encryption_configuration {
+	server_side_encryption_configuration {
     rule {
       apply_server_side_encryption_by_default {
         sse_algorithm = "aws:kms"

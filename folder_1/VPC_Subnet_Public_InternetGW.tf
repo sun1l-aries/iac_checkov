@@ -3,8 +3,6 @@ data "aws_availability_zones" "available" {
 		}
 
 resource "aws_vpc" "VPC" {
-	# checkov:skip=CKV2_AWS_12: ADD REASON
-	# checkov:skip=CKV2_AWS_11: ADD REASON
   cidr_block = "10.0.0.0/16"
   enable_dns_support = true
   enable_dns_hostnames = true
@@ -130,13 +128,12 @@ resource "aws_route_table_association" "AssociationForRouteTablePrivate20" {
 
 
 
-# resource "aws_internet_gateway" "Igw" {
-#   vpc_id = aws_vpc.VPC.id
-# }
+resource "aws_internet_gateway" "Igw" {
+  vpc_id = aws_vpc.VPC.id
+}
 
 resource "aws_eip" "EipForNatGw1" {
-	# checkov:skip=CKV2_AWS_19: ADD REASON
-}
+	}
 
 resource "aws_nat_gateway" "NatGw1" {
   allocation_id = aws_eip.EipForNatGw1.id
