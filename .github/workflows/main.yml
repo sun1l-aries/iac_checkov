@@ -10,8 +10,9 @@ jobs:
       - name: yamllint
         uses: docker://ghcr.io/ffurrer2/yamllint:latest
         with:
-          args: '--format github .'
+          args: '--format github ./*+(.yaml|.yml) ./**/*+(.yaml|.yml)'
   checkov-job:
+    needs: yamllint
     runs-on: ubuntu-latest
     name: checkov-action
     steps:
