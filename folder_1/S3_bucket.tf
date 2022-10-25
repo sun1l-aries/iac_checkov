@@ -21,7 +21,7 @@ resource "aws_s3_bucket_versioning" "S3Bucket" {
 
 resource "aws_s3_bucket_public_access_block" "blockPublicAccess" {
   bucket = aws_s3_bucket.S3Bucket.id
-  block_public_acls = false
+  block_public_acls = true
   block_public_policy = true
   ignore_public_acls = true
   restrict_public_buckets = true

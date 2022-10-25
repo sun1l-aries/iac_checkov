@@ -1,6 +1,6 @@
 ---
 # This is the checkov workflow with actions
-on: [push]
+on: [push]  # yamllint disable-line rule:truthy
 jobs:
   yamllint:
     runs-on: ubuntu-latest
