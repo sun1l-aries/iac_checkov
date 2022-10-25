@@ -19,8 +19,7 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@master
       - name: wget the config file
-        run: mkdir config && wget -O config/checkov_config.yaml \
-          https://raw.githubusercontent.com/sun1l-aries/iac_checkov/master/config_output.yaml
+        run: mkdir config && wget -O config/checkov_config.yaml https://raw.githubusercontent.com/sun1l-aries/iac_checkov/master/config_output.yaml
       - name: print the
         run: 'ls -al'
       - name: pull the docker
