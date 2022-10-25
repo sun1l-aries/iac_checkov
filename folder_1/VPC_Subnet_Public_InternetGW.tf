@@ -133,6 +133,7 @@ resource "aws_route_table_association" "AssociationForRouteTablePrivate20" {
 # }
 
 resource "aws_eip" "EipForNatGw1" {
+	# checkov:skip=CKV2_AWS_19: ADD REASON
 	}
 
 resource "aws_nat_gateway" "NatGw1" {
