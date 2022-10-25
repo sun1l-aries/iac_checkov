@@ -10,4 +10,3 @@ definition:
   attribute: "zone"
   operator: "not_equals"
   value: "us-central1-c"
-    
