@@ -9,4 +9,5 @@ definition:
     - "google_compute_instance"
   attribute: "zone"
   operator: "not_equals"
-  value: "us-central1-c"  
+  value: "us-central1-c"
+    
