@@ -4,10 +4,9 @@ metadata:
   id: "CKV2_GCP_1001"
   category: "NETWORKING"
 definition:
-  or:
-  - cond_type: "attribute"
-    resource_types:
-      - "google_compute_instance"
-    attribute: "zone"
-    operator: "not_equals"
-    value: "us-central1-c"
+        - cond_type: "attribute"
+          resource_types:
+            - "google_compute_instance"
+          attribute: "zone"
+          operator: "not_equals"
+          value: "us-central1-c"
