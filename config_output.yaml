@@ -1,31 +1,32 @@
+---
 branch: master
-#check:
+# check:
 #  - CKV_DOCKER_1
 compact: true
 directory:
- # - folder_1
+  # - folder_1
   - aws_cfn_files/EC2
-#docker-image: sample-image
-#dockerfile-path: Dockerfile
-#download-external-modules: true
-#evaluate-variables: true
-#external-checks-dir:
+# docker-image: sample-image
+# dockerfile-path: Dockerfile
+# download-external-modules: true
+# evaluate-variables: true
+# external-checks-dir:
 external-checks-git:
   - https://github.com/sun1l-aries/iac_checkov.git//custom_checks
-##  - sample-dir
-#external-modules-download-path: .external_modules
-#framework: cloudformation,terraform
+# - sample-dir
+# external-modules-download-path: .external_modules
+# framework: cloudformation,terraform
 framework:
   - cloudformation
-#no-guide: true
+# no-guide: true
 output: sarif
-#quiet: true
-#repo-id: bridgecrew/sample-repo
+# quiet: true
+# repo-id: bridgecrew/sample-repo
 skip-check:
   - CKV2_AWS_12
   - CKV2_AWS_19
   - CKV_AWS_144
-#skip-fixes: true
-#skip-framework: dockerfile
-#skip-suppressions: true
-#soft-fail: true
+# skip-fixes: true
+# skip-framework: dockerfile
+# skip-suppressions: true
+# soft-fail: true
