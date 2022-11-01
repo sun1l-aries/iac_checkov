@@ -3,7 +3,7 @@
 on: [push]  # yamllint disable-line rule:truthy
 jobs:
   checkov-job:
-    needs: yamllint
+    # needs: yamllint
     runs-on: ubuntu-latest
     name: checkov-action
     steps:
