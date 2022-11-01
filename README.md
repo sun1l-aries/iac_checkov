@@ -1,5 +1,4 @@
 # iac_checkov
-# This will be improved as we move along
-# Third time lucky
-# trying from atom on windows
-# adding new things
+# This only has the iac_fiels_for testing
+# This simulates a customer Ci/CD repo for input files
+# The main file is the main.yml file which will call checlov.config
