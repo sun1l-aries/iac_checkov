@@ -2,15 +2,6 @@
 # This is the checkov workflow with actions
 on: [push]  # yamllint disable-line rule:truthy
 jobs:
-  yamllint:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: yamllint
-        uses: docker://ghcr.io/ffurrer2/yamllint:latest
-        with:
-          args: '--format standard .'
   checkov-job:
     needs: yamllint
     runs-on: ubuntu-latest
@@ -20,7 +11,8 @@ jobs:
         uses: actions/checkout@master
       - name: wget the config file
         # yamllint disable
-        run: mkdir config && wget -O config/checkov_config.yaml https://raw.githubusercontent.com/sun1l-aries/iac_checkov/master/config_output.yaml
+        run: mkdir config && wget -O config/checkov_config.yaml https://github.com/sun1l-aries/checkov_config/blob/master/config_output.yaml
+        # https://raw.githubusercontent.com/sun1l-aries/iac_checkov/master/config_output.yaml
         # yamllint enable
       - name: pull the docker
         run: docker pull bridgecrew/checkov
