@@ -18,5 +18,5 @@ jobs:
         run: docker pull bridgecrew/checkov
       - name: mount the 2 volumes and run checkov
         # yamllint disable
-        run: docker run --tty --volume $(pwd):/tf --workdir /tf bridgecrew/checkov --config-file /tf/config/checkov_config.yaml
+        run: docker run --tty --volume $(pwd):/tf --workdir /tf bridgecrew/checkov --config-file /tf/config/checkov_config.yaml --external-checks-git https://github.com/sun1l-aries/checkov_custom_policies.git
         # yamllint enable
