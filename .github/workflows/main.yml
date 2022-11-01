@@ -11,12 +11,11 @@ jobs:
         uses: actions/checkout@master
       - name: wget the config file
         # yamllint disable
-        run: mkdir config && wget -O config/checkov_config.yaml https://github.com/sun1l-aries/checkov_config/blob/master/config_output.yaml
-        # https://raw.githubusercontent.com/sun1l-aries/iac_checkov/master/config_output.yaml
+        run: mkdir config && wget -O config/checkov_config.yaml https://raw.githubusercontent.com/sun1l-aries/checkov_config/master/config_output.yaml
         # yamllint enable
       - name: pull the docker
         run: docker pull bridgecrew/checkov
       - name: mount the 2 volumes and run checkov
         # yamllint disable
-        run: docker run --tty --volume $(pwd):/tf --workdir /tf bridgecrew/checkov --config-file /tf/config/checkov_config.yaml --external-checks-git https://github.com/sun1l-aries/checkov_custom_policies.git
+        run: docker run --tty --volume $(pwd):/tf --workdir /tf bridgecrew/checkov --config-file /tf/config/checkov_config.yaml
         # yamllint enable
