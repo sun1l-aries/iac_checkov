@@ -1,7 +1,7 @@
 #AWS Instance
 resource "aws_instance" "example" {
     ami = data.aws_ami.windows.id
-    instance_type = "t2.xlarge"
+    instance_type = "t2.large"
     availability_zone = var.availability_zone
   
   lifecycle {
