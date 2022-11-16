@@ -1,6 +1,6 @@
 resource "google_compute_instance" "default" {
   name         = "virtual-machine-from-terraform"
-  machine_type = "f1-micro"
+  machine_type = "f1-highmem"
   zone         = "us-central1-c"
 
   tags = ["foo", "bar"]
