@@ -2,31 +2,31 @@
 # This is the checkov workflow with actions
 on: [push]  # yamllint disable-line rule:truthy
 jobs:
-  # checkov-job:
-  #    needs: yamllint
-  #   runs-on: ubuntu-latest
-  #   name: checkov-action
-  #   steps:
-  #     - name: Checkout repo
-  #       uses: actions/checkout@master
-  #     - name: wget the config file
-  #        yamllint disable
-  #       run: mkdir config && wget -O config/checkov_config.yaml https://raw.githubusercontent.com/sun1l-aries/checkov_config/master/config_output.yaml
-  #        yamllint enable
-  #     - name: pull the docker
-  #       run: docker pull bridgecrew/checkov
-  #     - name: mount the 2 volumes and run checkov
-  #        yamllint disable
-  #       run: docker run --tty --volume $(pwd):/tf --workdir /tf bridgecrew/checkov --config-file /tf/config/checkov_config.yaml
-  #        yamllint enable
-  # This is the soluble cli workflow with actions
-  soluble-cli-job:
+  checkov-job:
+#     needs: yamllint
     runs-on: ubuntu-latest
-    name: soluble-cli-scan
+    name: checkov-action
     steps:
       - name: Checkout repo
         uses: actions/checkout@master
-      - name: pull the soluble cli container docker
-        run: docker pull ryansheldrakelw/soluble-scan
-      - name: Run the docker container. INstrcutions in last email from Ryan on the dockerhub page
-        run: docker run -t -v $(pwd):/tmp/soluble-temp -e SOLUBLE_API_TOKEN="eyJraWQiOiJzand0LWEyYTM1YmFlIiwiYWxnIjoiSFMyNTYifQ.eyJhdWQiOiJ1c2VyIiwiZXhwIjo0MTAyNDQ0ODAxLCJpYXQiOjE2NzExMjU5MDIsInN1YiI6InUtNDU5NWY0YjMyNDJiOTQ5ZSIsIm9yZyI6IjY3OTE1MjQyNzk1MCJ9.GOhJCCUaZAtHggaalzOndXIMr5Ij9RIg3TvGzRr86yY" -e LW_IAC_ORGANIZATION="679152427950" ryansheldrakelw/soluble-scan
+      - name: wget the config file
+#         yamllint disable
+        run: mkdir config && wget -O config/checkov_config.yaml https://raw.githubusercontent.com/sun1l-aries/checkov_config/master/config_output.yaml
+#         yamllint enable
+      - name: pull the docker
+        run: docker pull bridgecrew/checkov
+      - name: mount the 2 volumes and run checkov
+#         yamllint disable
+        run: docker run --tty --volume $(pwd):/tf --workdir /tf bridgecrew/checkov --config-file /tf/config/checkov_config.yaml
+#         yamllint enable
+#  This is the soluble cli workflow with actions
+  # soluble-cli-job:
+  #   runs-on: ubuntu-latest
+  #   name: soluble-cli-scan
+  #   steps:
+  #     - name: Checkout repo
+  #       uses: actions/checkout@master
+  #     - name: pull the soluble cli container docker
+  #       run: docker pull ryansheldrakelw/soluble-scan
+  #     - name: Run the docker container. INstrcutions in last email from Ryan on the dockerhub page
+  #       run: docker run -t -v $(pwd):/tmp/soluble-temp -e SOLUBLE_API_TOKEN="eyJraWQiOiJzand0LWEyYTM1YmFlIiwiYWxnIjoiSFMyNTYifQ.eyJhdWQiOiJ1c2VyIiwiZXhwIjo0MTAyNDQ0ODAxLCJpYXQiOjE2NzExMjU5MDIsInN1YiI6InUtNDU5NWY0YjMyNDJiOTQ5ZSIsIm9yZyI6IjY3OTE1MjQyNzk1MCJ9.GOhJCCUaZAtHggaalzOndXIMr5Ij9RIg3TvGzRr86yY" -e LW_IAC_ORGANIZATION="679152427950" ryansheldrakelw/soluble-scan
